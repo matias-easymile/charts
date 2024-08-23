@@ -13,4 +13,8 @@ rules:
       - get
       - list
       - watch
+  # Custom rules inclusion
+  {{ if .Values.sentry.custom_rules }}
+  {{ toYaml .Values.sentry.custom_rules | indent 4 }}
+  {{ end }}
 {{- end -}}
